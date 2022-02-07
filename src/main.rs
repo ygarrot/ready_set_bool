@@ -1,3 +1,15 @@
+mod adder;
+
 fn main() {
-    println!("Hello, world!");
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn adder() {
+        assert_eq!(3, adder::adder(1, 2));
+    }
+
 }
