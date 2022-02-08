@@ -16,7 +16,21 @@ use rand::Rng;
 //     adder(inc(a), b - 1)
 // }
 
-pub fn adder(a: u32, b: u32) -> u32 {
+pub fn inc(i: u32, carry: u32) -> u32 {
+    if (i & carry) == 0 {
+        return i | carry;
+    }
+    inc(i & !carry, carry << 1)
+}
+
+pub fn adder_v2(a: u32, b: u32) -> u32 {
+    if b == 0 {
+        return a;
+    }
+    adder_v2(inc(a, 1), b - 1)
+}
+
+pub fn adder_v1(a: u32, b: u32) -> u32 {
     let mut x = a;
     let mut carry;
     for _ in 0..b {
@@ -39,6 +53,7 @@ mod tests {
         let mut rng = rand::thread_rng();
 
 
+        let adder = adder_v2;
         for _ in 0..16 {
             let a: u32 = rng.gen_range(0..10);
             let b: u32 = rng.gen_range(0..10);
