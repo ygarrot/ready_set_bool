@@ -51,8 +51,6 @@ mod tests {
     #[test]
     fn basic() {
         let mut rng = rand::thread_rng();
-
-
         let adder = adder_v2;
         for _ in 0..16 {
             let a: u32 = rng.gen_range(0..10);
@@ -60,13 +58,6 @@ mod tests {
             println!("{} + {}, ", a, b);
             assert_eq!(a + b, adder(a, b));
         }
-
-        assert_eq!(15, adder(8, 7));
-        // assert_eq!(7, adder(5, 2));
-        // assert_eq!(8, adder(6, 2));
-
-        // assert_eq!(7, adder(5, 3));
-        // assert_eq!(8, adder(7, 16));
     }
 
 }
