@@ -50,6 +50,8 @@ mod tests {
 
     #[test]
     fn basic() {
+        println!("========================");
+        println!("adder");
         let mut rng = rand::thread_rng();
         let adder = adder_v2;
         for _ in 0..16 {
